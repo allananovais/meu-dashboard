@@ -185,37 +185,37 @@ function Ring({ pct, size = 64, stroke = 6, color = "#8b5cf6", children }) {
 
 function Check({ checked, onChange, label, color = "#8b5cf6", small, detalhe }) {
   return (
-    <div onClick={onChange} style={{ display: "flex", alignItems: "flex-start", gap: 10, cursor: "pointer", padding: small ? "7px 0" : "9px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-      <div style={{ width: small ? 18 : 20, height: small ? 18 : 20, borderRadius: 5, flexShrink: 0, marginTop: detalhe ? 2 : 0, background: checked ? color : "transparent", border: `2px solid ${checked ? color : "rgba(255,255,255,0.12)"}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.15s" }}>
-        {checked && <span style={{ color: "#fff", fontSize: 10, fontWeight: "bold" }}>✓</span>}
+    <div onClick={onChange} style={{ display: "flex", alignItems: "flex-start", gap: 12, cursor: "pointer", padding: small ? "8px 0" : "11px 0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+      <div style={{ width: small ? 18 : 22, height: small ? 18 : 22, borderRadius: 6, flexShrink: 0, marginTop: detalhe ? 2 : 0, background: checked ? color : "transparent", border: `2px solid ${checked ? color : "rgba(255,255,255,0.12)"}`, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.15s" }}>
+        {checked && <span style={{ color: "#fff", fontSize: 11, fontWeight: "bold" }}>✓</span>}
       </div>
       <div>
-        <div style={{ fontSize: small ? 12 : 13, color: checked ? "#475569" : "#e2e8f0", textDecoration: checked ? "line-through" : "none", transition: "all 0.2s" }}>{label}</div>
-        {detalhe && <div style={{ fontSize: 11, color: checked ? "#374151" : "#64748b", marginTop: 3, lineHeight: 1.5 }}>{detalhe}</div>}
+        <div style={{ fontSize: small ? "clamp(12px,1vw,14px)" : "clamp(13px,1.2vw,16px)", color: checked ? "#475569" : "#e2e8f0", textDecoration: checked ? "line-through" : "none", transition: "all 0.2s" }}>{label}</div>
+        {detalhe && <div style={{ fontSize: "clamp(11px,0.9vw,13px)", color: checked ? "#374151" : "#64748b", marginTop: 3, lineHeight: 1.5 }}>{detalhe}</div>}
       </div>
     </div>
   );
 }
 
 function Card({ children, style }) {
-  return <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 14, padding: "14px 16px", marginBottom: 14, ...style }}>{children}</div>;
+  return <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "clamp(14px,1.5vw,22px) clamp(16px,2vw,26px)", marginBottom: 16, ...style }}>{children}</div>;
 }
 
 function Label({ children, color = "#64748b" }) {
-  return <div style={{ fontSize: 10, letterSpacing: 2, color, textTransform: "uppercase", marginBottom: 10 }}>{children}</div>;
+  return <div style={{ fontSize: "clamp(10px,0.9vw,13px)", letterSpacing: 2, color, textTransform: "uppercase", marginBottom: 12 }}>{children}</div>;
 }
 
 function SectionHeader({ emoji, title, color, subtitle }) {
   return (
-    <div style={{ marginBottom: 20 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 22 }}>{emoji}</span>
+    <div style={{ marginBottom: 24 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <span style={{ fontSize: "clamp(22px,2.5vw,32px)" }}>{emoji}</span>
         <div>
-          <div style={{ fontSize: 18, color: "#f1f5f9", fontWeight: "500" }}>{title}</div>
-          {subtitle && <div style={{ fontSize: 11, color, letterSpacing: 1, marginTop: 1 }}>{subtitle}</div>}
+          <div style={{ fontSize: "clamp(18px,2vw,28px)", color: "#f1f5f9", fontWeight: "500" }}>{title}</div>
+          {subtitle && <div style={{ fontSize: "clamp(11px,1vw,14px)", color, letterSpacing: 1, marginTop: 2 }}>{subtitle}</div>}
         </div>
       </div>
-      <div style={{ height: 1, background: `linear-gradient(to right, ${color}40, transparent)`, marginTop: 12 }} />
+      <div style={{ height: 1, background: `linear-gradient(to right, ${color}40, transparent)`, marginTop: 14 }} />
     </div>
   );
 }
@@ -408,35 +408,39 @@ export default function App() {
     <div style={{ minHeight: "100vh", background: "#07070e", color: "#e2e8f0", fontFamily: "system-ui, -apple-system, sans-serif", paddingBottom: 80 }}>
 
       {/* HEADER */}
-      <div style={{ background: "linear-gradient(160deg, #0c0c1a, #12122a)", padding: "20px 20px 16px", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "sticky", top: 0, zIndex: 40 }}>
-        <div style={{ fontSize: 10, letterSpacing: 3, color: "#8b5cf6", textTransform: "uppercase", marginBottom: 2 }}>Painel de Vida</div>
-        <div style={{ fontSize: 20, color: "#f8fafc", marginBottom: 12 }}>Allana Novais ✨</div>
-        <div style={{ display: "flex", gap: 6 }}>
+      <div style={{ background: "linear-gradient(160deg, #0c0c1a, #12122a)", padding: "clamp(20px, 3vw, 36px) clamp(20px, 5vw, 60px) 20px", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "sticky", top: 0, zIndex: 40 }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ fontSize: "clamp(10px, 1.2vw, 13px)", letterSpacing: 3, color: "#8b5cf6", textTransform: "uppercase", marginBottom: 4 }}>Painel de Vida</div>
+          <div style={{ fontSize: "clamp(20px, 2.5vw, 32px)", color: "#f8fafc", marginBottom: 16 }}>Allana Novais ✨</div>
+        <div style={{ display: "flex", gap: 10 }}>
           {[
             { val: `${habitosFeitos}/${data.habitos.length}`, label: "hábitos", bg: "rgba(139,92,246,0.1)", border: "rgba(139,92,246,0.15)", color: "#c4b5fd" },
             { val: `${tarefasFeitas}/${todasTarefas.length}`, label: "tarefas", bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.15)", color: "#6ee7b7" },
             { val: data.biblioteca.assinantes, label: "assinantes", bg: "rgba(236,72,153,0.1)", border: "rgba(236,72,153,0.15)", color: "#f9a8d4" },
             { val: `R$${(data.biblioteca.assinantes * 33.5).toLocaleString("pt-BR", { minimumFractionDigits: 0 })}`, label: "renda/mês", bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.15)", color: "#fde68a" },
           ].map((s, i) => (
-            <div key={i} style={{ flex: 1, background: s.bg, border: `1px solid ${s.border}`, borderRadius: 10, padding: "8px 6px", textAlign: "center" }}>
-              <div style={{ fontSize: 14, fontWeight: "bold", color: s.color }}>{s.val}</div>
-              <div style={{ fontSize: 9, color: "#64748b", marginTop: 1 }}>{s.label}</div>
+            <div key={i} style={{ flex: 1, background: s.bg, border: `1px solid ${s.border}`, borderRadius: 12, padding: "clamp(8px, 1.5vw, 16px) clamp(6px, 1vw, 14px)", textAlign: "center" }}>
+              <div style={{ fontSize: "clamp(14px, 1.8vw, 22px)", fontWeight: "bold", color: s.color }}>{s.val}</div>
+              <div style={{ fontSize: "clamp(9px, 0.9vw, 12px)", color: "#64748b", marginTop: 2 }}>{s.label}</div>
             </div>
           ))}
+        </div>
         </div>
       </div>
 
       {/* TABS */}
       <div style={{ display: "flex", overflowX: "auto", background: "#0c0c1a", borderBottom: "1px solid rgba(255,255,255,0.06)", scrollbarWidth: "none" }}>
-        {TABS.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} style={{ flexShrink: 0, padding: "8px 10px", background: "none", border: "none", borderBottom: tab === t.id ? "2px solid #8b5cf6" : "2px solid transparent", color: tab === t.id ? "#c4b5fd" : "#475569", fontSize: 10, cursor: "pointer", whiteSpace: "nowrap", fontFamily: "inherit", display: "flex", flexDirection: "column", alignItems: "center", gap: 2, minWidth: 50 }}>
-            <span style={{ fontSize: 15 }}>{t.emoji}</span>
-            <span>{t.label}</span>
-          </button>
-        ))}
+        <div style={{ display: "flex", maxWidth: 1100, margin: "0 auto", width: "100%" }}>
+          {TABS.map(t => (
+            <button key={t.id} onClick={() => setTab(t.id)} style={{ flexShrink: 0, padding: "clamp(8px, 1.2vw, 14px) clamp(10px, 1.5vw, 22px)", background: "none", border: "none", borderBottom: tab === t.id ? "2px solid #8b5cf6" : "2px solid transparent", color: tab === t.id ? "#c4b5fd" : "#475569", fontSize: "clamp(10px, 1vw, 13px)", cursor: "pointer", whiteSpace: "nowrap", fontFamily: "inherit", display: "flex", flexDirection: "column", alignItems: "center", gap: 3, minWidth: 50 }}>
+              <span style={{ fontSize: "clamp(15px, 1.5vw, 20px)" }}>{t.emoji}</span>
+              <span>{t.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div style={{ padding: "20px", maxWidth: 640, margin: "0 auto" }}>
+      <div style={{ padding: "clamp(20px, 3vw, 40px) clamp(20px, 5vw, 60px)", maxWidth: 1100, margin: "0 auto" }}>
 
         {/* GERAL */}
         {tab === "geral" && (
